@@ -1,13 +1,10 @@
 import './App.css';
-import { useSelector } from 'react-redux';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
-  const taskState = useSelector(state => state.tasks)
-  console.log(taskState)
   return (
     <div className="bg-zinc-900 h-screen text-white">
       <div className='flex items-center justify-center h-full'>

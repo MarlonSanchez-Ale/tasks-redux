@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTask, deleteAll } from "../features/tasks/taskSlice";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function TaskList() {
     const tasks = useSelector(state => state.tasks);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleDelete = (id) => {
         dispatch(deleteTask(id))
