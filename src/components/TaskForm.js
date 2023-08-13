@@ -7,11 +7,9 @@ import { useEffect } from "react"
 import {
     Card,
     CardBody,
-    CardFooter,
     Typography,
     Button,
     Input,
-    Textarea
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 

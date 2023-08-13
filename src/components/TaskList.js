@@ -10,13 +10,11 @@ import {
     TimelineHeader,
     Tooltip,
     IconButton,
-    Badge,
     Button,
     Alert,
     Checkbox
 } from "@material-tailwind/react";
 import { BsLightningChargeFill, BsPencilSquare, BsTrash, BsSignStopFill } from "react-icons/bs";
-import TaskCheck from "./TaskCheck";
 
 export default function TaskList() {
     const tasks = useSelector(state => state.tasks);
