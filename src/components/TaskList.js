@@ -61,12 +61,12 @@ export default function TaskList() {
                     <Button onClick={() => handleDeleteAll()} size="lg" className="bg-red-600 text-lg">CLEAN</Button>
                 </div>
             </div>
-            <div className="sm:w-60 flex flex-col justify-center md:w-full ">
+            <div className="sm:w-full flex flex-col justify-center">
                 <Timeline className="">
                     {tasks.map(({ id, title, description, status }, index) => (
-                        <TimelineItem className="sm:h-full mt-3 md:h-36" key={index}>
+                        <TimelineItem className="w-full sm:h-full mt-3 md:h-36" key={index}>
                             <TimelineConnector className="!w-[78px]" />
-                            <TimelineHeader className={status === 'IN PROGRESS' ? 'relative rounded-xl border border-yellow-500 bg-gray-700 p-5 shadow-lg shadow-blue-gray-900 sm:flex flex-col md:flex-row' : 'relative rounded-xl border border-blue-800  bg-blue-gray-900 p-5 shadow-lg shadow-gray-900 sm:flex flex-col md:flex-row'}>
+                            <TimelineHeader className={status === 'IN PROGRESS' ? 'relative rounded-xl border border-yellow-500 bg-gray-700 p-5 shadow-lg shadow-blue-gray-900 sm:flex flex-col md:flex-row w-full' : 'relative rounded-xl border border-blue-800  bg-blue-gray-900 p-5 shadow-lg shadow-gray-900 sm:flex flex-col md:flex-row'}>
                                 <TimelineIcon className="p-3" variant="ghost">
                                     <BsLightningChargeFill className="h-5 w-5" color="white" />
                                 </TimelineIcon>
@@ -131,7 +131,7 @@ export default function TaskList() {
                 {tasks && !tasks.length && (
                     <Alert
                         icon={<BsSignStopFill className="mt-px h-6 w-6" />}
-                        className="bg-gray-800 text-gray-500 border-l-4 border-[#c92e2e] rounded-none font-medium shadow-gray-800 text-lg">
+                        className="bg-gray-800 text-gray-500 border-l-4 border-[#c92e2e] rounded-none font-medium shadow-gray-800 text-lg w-full">
                         You don't have any pending tasks
                     </Alert>
                 )}
