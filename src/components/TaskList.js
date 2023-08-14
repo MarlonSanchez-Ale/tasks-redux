@@ -38,7 +38,7 @@ export default function TaskList() {
 
 
     return (
-        <div className="sm:w-3/4 md:w-4/6">
+        <div className="h-full sm:w-auto p-8 justify-center md:w-4/6">
             <Typography variant="h2" className="font-bold my-10">
                 Welcome to Task Manager
             </Typography>
@@ -61,23 +61,23 @@ export default function TaskList() {
                     <Button onClick={() => handleDeleteAll()} size="lg" className="bg-red-600 text-lg">CLEAN</Button>
                 </div>
             </div>
-            <div className="grid grid-rows-3 gap-4">
-                {tasks.map(({ id, title, description, status }, index) => (
-                    <Timeline key={index}>
-                        <TimelineItem className="h-28">
+            <div className="sm:w-60 flex flex-col justify-center md:w-full ">
+                <Timeline className="">
+                    {tasks.map(({ id, title, description, status }, index) => (
+                        <TimelineItem className="sm:h-full mt-3 md:h-36" key={index}>
                             <TimelineConnector className="!w-[78px]" />
-                            <TimelineHeader className={status === 'IN PROGRESS' ? 'relative rounded-xl border border-yellow-500 bg-gray-700 py-3 pl-4 pr-8 shadow-lg shadow-gray-900' : 'relative rounded-xl border border-blue-800  bg-blue-gray-900 py-3 pl-4 pr-8 shadow-lg shadow-gray-900'}>
+                            <TimelineHeader className={status === 'IN PROGRESS' ? 'relative rounded-xl border border-yellow-500 bg-gray-700 p-5 shadow-lg shadow-blue-gray-900 sm:flex flex-col md:flex-row' : 'relative rounded-xl border border-blue-800  bg-blue-gray-900 p-5 shadow-lg shadow-gray-900 sm:flex flex-col md:flex-row'}>
                                 <TimelineIcon className="p-3" variant="ghost">
                                     <BsLightningChargeFill className="h-5 w-5" color="white" />
                                 </TimelineIcon>
-                                <div className="flex flex-col gap-1">
-                                    <Typography variant="h6" >
+                                <div className="flex flex-col gap-1 justify-start">
+                                    <Typography variant="h6" className="sm:text-center md:text-start">
                                         {title}
                                     </Typography>
-                                    <Typography variant="small" className="font-normal text-gray-500">
+                                    <Typography variant="small" className="font-normal text-gray-500 sm:text-center  md:text-start">
                                         {description}
                                     </Typography>
-                                    <Typography variant="small" className="font-normal text-gray-500">
+                                    <Typography variant="small" className="font-normal text-gray-500 sm:text-center  md:text-start">
                                         {status}
                                     </Typography>
                                 </div>
@@ -117,8 +117,9 @@ export default function TaskList() {
                                 </div>
                             </TimelineHeader>
                         </TimelineItem>
-                    </Timeline>
-                ))}
+                    ))}
+                </Timeline>
+
                 {!tasks &&
                     <div role="status" className="space-y-2.5 animate-pulse w-full p-20">
                         <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 max-w-[800px] mb-2.5 mx-auto"></div>

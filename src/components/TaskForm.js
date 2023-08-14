@@ -54,7 +54,7 @@ export default function TaskForm() {
     }, [params.id, tasks])
 
     return (
-        <Card className="mt-6 w-96 bg-gray-700">
+        <Card className="mt-6 w-96 bg-blue-gray-900 shadow-md">
             <CardBody className="text-center">
                 <div className="flex flex-col justify-center gap-2">
                     <div className="flex justify-center">
