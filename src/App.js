@@ -6,8 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 
   return (
-    <div className="App h-screen text-white">
-      <div className='flex items-center justify-center'>
+    <div className="flex flex-wrap justify-center p-4 text-center text-gray-100">
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<TaskList />} />
@@ -15,7 +14,6 @@ function App() {
             <Route path='/edit-task/:id' element={<TaskForm />} />
           </Routes>
         </BrowserRouter>
-      </div>
     </div>
   );
 }

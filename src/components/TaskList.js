@@ -38,7 +38,7 @@ export default function TaskList() {
 
 
     return (
-        <div className="w-4/6">
+        <div className="sm:w-3/4 md:w-4/6">
             <Typography variant="h2" className="font-bold my-10">
                 Welcome to Task Manager
             </Typography>
@@ -61,7 +61,7 @@ export default function TaskList() {
                     <Button onClick={() => handleDeleteAll()} size="lg" className="bg-red-600 text-lg">CLEAN</Button>
                 </div>
             </div>
-            <div className="grid grid-rows-3 gap-4 bg-black">
+            <div className="grid grid-rows-3 gap-4">
                 {tasks.map(({ id, title, description, status }, index) => (
                     <Timeline key={index}>
                         <TimelineItem className="h-28">
