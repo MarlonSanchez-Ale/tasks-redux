@@ -6,8 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
 
   return (
-    <div className="bg-gray-900 h-screen text-white">
-      <div className='flex items-center justify-center h-full'>
+    <div className="App h-screen text-white">
+      <div className='flex items-center justify-center sm:max-h-[600px]'>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<TaskList />} />

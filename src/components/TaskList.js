@@ -35,12 +35,15 @@ export default function TaskList() {
 
     return (
         <div className="w-4/6">
-            <header className="flex justify-between items-center py-4 my-5">
+            <h1 className="text-lg sm:text-xl font-bold my-10">
+                Welcome to Task Manager
+            </h1>
+            <div className="flex justify-between items-center py-4 my-5 max-h-[calc(100%-112px)] sm:max-h-[400px] mb-14 ">
                 <Button
-                    size="lg"
+                    size="lg sm:md"
                     variant="gradient"
                     color="blue-gray"
-                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px]"
+                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px] "
                 >
                     TO DO
                     <span className="absolute right-0 grid h-full w-12 place-items-center bg-blue-gray-600 transition-colors group-hover:bg-blue-gray-700">
@@ -48,12 +51,12 @@ export default function TaskList() {
                     </span>
                 </Button>
                 <div className="flex justify-between items-center gap-4">
-                    <Link to='/create-task' className="px-2 py-1 rounded-sm text-sm">
-                        <Button className="bg-indigo-800 text-lg">NEW TASK</Button>
+                    <Link to='/create-task' className="px-2 py-1 rounded-sm">
+                        <Button className="bg-indigo-800 text-lg sm:text-sm">NEW TASK</Button>
                     </Link>
-                    <Button onClick={() => handleDeleteAll()} className="bg-red-600 text-lg">CLEAN</Button>
+                    <Button onClick={() => handleDeleteAll()} className="bg-red-600 text-lg sm:text-sm">CLEAN</Button>
                 </div>
-            </header>
+            </div>
             <div className="grid grid-rows-3 gap-4">
                 {tasks.map(({ id, title, description, status }, index) => (
                     <Timeline key={index}>
@@ -82,7 +85,6 @@ export default function TaskList() {
                                                     defaultChecked
                                                     ripple={false}
                                                     className="h-8 w-8 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-
                                                 />
                                             ) : (
                                                 <Checkbox
@@ -133,28 +135,3 @@ export default function TaskList() {
     )
 }
 
-/*
-<div key={index} className="bg-gray-800 p-4 rounded-md">
-                        <header className="flex justify-between">
-                            <h3>Nombre: {title}</h3>
-                            <div className="flex gap-3">
-                                <Link
-                                    to={`/edit-task/${id}`}
-                                    className="bg-zinc-600 px-2 py-1 text-xs rounded-md"
-                                >
-                                    Editar
-                                </Link>
-                                <button
-                                    onClick={() => handleDelete(id)}
-                                    className="bg-red-500 px-2 py-1 text-xs rounded-md self-center"
-                                >
-                                    Delete
-                                </button>
-                            </div>
-                        </header>
-                        <p>Descripción: {description}</p>
-                        <p>Estado: {status}</p>
-
-                    </div>
-
-*/
