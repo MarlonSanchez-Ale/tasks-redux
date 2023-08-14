@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App h-screen text-white">
-      <div className='flex items-center justify-center sm:max-h-[600px]'>
+      <div className='flex items-center justify-center'>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<TaskList />} />

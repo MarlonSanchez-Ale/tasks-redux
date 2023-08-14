@@ -15,10 +15,12 @@ import {
     Checkbox
 } from "@material-tailwind/react";
 import { BsLightningChargeFill, BsPencilSquare, BsTrash, BsSignStopFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export default function TaskList() {
     const tasks = useSelector(state => state.tasks);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleEditState = (id) => {
         console.log(id)
@@ -33,31 +35,33 @@ export default function TaskList() {
         dispatch(deleteAll())
     }
 
+
+
     return (
         <div className="w-4/6">
-            <h1 className="text-lg sm:text-xl font-bold my-10">
+            <Typography variant="h2" className="font-bold my-10">
                 Welcome to Task Manager
-            </h1>
-            <div className="flex justify-between items-center py-4 my-5 max-h-[calc(100%-112px)] sm:max-h-[400px] mb-14 ">
+            </Typography>
+            <div className="flex py-4 my-5 sm:flex-col gap-5 md:flex-row justify-between">
                 <Button
-                    size="lg sm:md"
+                    size="lg"
                     variant="gradient"
                     color="blue-gray"
-                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px] "
+                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px] sm:text-lg md:text-xl "
                 >
                     TO DO
                     <span className="absolute right-0 grid h-full w-12 place-items-center bg-blue-gray-600 transition-colors group-hover:bg-blue-gray-700">
                         {tasks.length}
                     </span>
                 </Button>
-                <div className="flex justify-between items-center gap-4">
-                    <Link to='/create-task' className="px-2 py-1 rounded-sm">
-                        <Button className="bg-indigo-800 text-lg sm:text-sm">NEW TASK</Button>
-                    </Link>
-                    <Button onClick={() => handleDeleteAll()} className="bg-red-600 text-lg sm:text-sm">CLEAN</Button>
+                <div className="flex sm:flex-col justify-center gap-5 md:flex-row">
+
+                    <Button size="lg" onClick={() => { navigate("/create-task") }} className="bg-indigo-800 text-lg">NEW TASK</Button>
+
+                    <Button onClick={() => handleDeleteAll()} size="lg" className="bg-red-600 text-lg">CLEAN</Button>
                 </div>
             </div>
-            <div className="grid grid-rows-3 gap-4">
+            <div className="grid grid-rows-3 gap-4 bg-black">
                 {tasks.map(({ id, title, description, status }, index) => (
                     <Timeline key={index}>
                         <TimelineItem className="h-28">
