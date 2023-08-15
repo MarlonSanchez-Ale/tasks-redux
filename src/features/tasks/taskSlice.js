@@ -15,15 +15,14 @@ export const taskSlice = createSlice({
             if (foundTask) {
                 foundTask.title = title
                 foundTask.description = description
+
             }
         },
         editState: (state, action) => {
             const foundTask = state.find(task => task.id === action.payload)
 
             if (foundTask) {
-               
-                    foundTask.status = "DONE"
-               
+                foundTask.status = "DONE"
             }
         },
         deleteTask: (state, action) => {
@@ -39,5 +38,4 @@ export const taskSlice = createSlice({
 })
 
 export const { addTask, editTask, editState, deleteTask, deleteAll } = taskSlice.actions
-
 export default taskSlice.reducer 

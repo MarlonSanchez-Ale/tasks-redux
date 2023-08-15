@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { editState, deleteTask, deleteAll } from "../features/tasks/taskSlice";
+import { selectTask, editState, deleteTask, deleteAll } from "../features/tasks/taskSlice";
 import { Link } from "react-router-dom";
 import {
     Timeline,
@@ -18,12 +18,12 @@ import { BsLightningChargeFill, BsPencilSquare, BsTrash, BsSignStopFill } from "
 import { useNavigate } from "react-router-dom";
 
 export default function TaskList() {
-    const tasks = useSelector(state => state.tasks);
+    const tasks = useSelector(state => state.taskManager);
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleEditState = (id) => {
-        console.log(id)
         dispatch(editState(id))
     }
 
@@ -136,7 +136,12 @@ export default function TaskList() {
                     </Alert>
                 )}
             </div>
+
         </div>
     )
 }
 
+/*
+
+
+*/

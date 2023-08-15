@@ -24,7 +24,7 @@ export default function TaskForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const params = useParams();
-    const tasks = useSelector(state => state.tasks)
+    const tasks = useSelector(state => state.taskManager)
 
     const handleChange = e => {
         setTask({
@@ -49,7 +49,7 @@ export default function TaskForm() {
 
     useEffect(() => {
         if (params.id) {
-            setTask(tasks.find((task) => task.id === params.id))
+           setTask(tasks.find((task) => task.id === params.id))
         }
     }, [params.id, tasks])
 
