@@ -18,7 +18,7 @@ export default function TaskForm() {
     const [task, setTask] = useState({
         title: "",
         description: "",
-        status: "IN PROGRESS"
+        status: false
     })
 
     const dispatch = useDispatch();
@@ -49,7 +49,7 @@ export default function TaskForm() {
 
     useEffect(() => {
         if (params.id) {
-           setTask(tasks.find((task) => task.id === params.id))
+            setTask(tasks.find((task) => task.id === params.id))
         }
     }, [params.id, tasks])
 
@@ -109,10 +109,10 @@ export default function TaskForm() {
                     />
 
                     <div className="flex flex-grow justify-center gap-3">
+                        <Button type="submit" className="bg-indigo-800 text-lg rounded-md w-32">SAVE</Button>
                         <Link to="/">
-                            <Button type="submit" className="bg-red-900 text-lg rounded-md">CANCEL</Button>
+                            <Button type="button" className="bg-red-900 text-lg rounded-md w-32">CANCEL</Button>
                         </Link>
-                        <Button type="submit" className="bg-indigo-800 text-lg rounded-md">SAVE</Button>
                     </div>
                 </form>
             </CardBody>

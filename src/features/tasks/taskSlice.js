@@ -22,7 +22,7 @@ export const taskSlice = createSlice({
             const foundTask = state.find(task => task.id === action.payload)
 
             if (foundTask) {
-                foundTask.status = "DONE"
+                foundTask.status = !foundTask.status
             }
         },
         deleteTask: (state, action) => {

@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function TaskList() {
     const tasks = useSelector(state => state.taskManager);
-    
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ export default function TaskList() {
                     size="lg"
                     variant="gradient"
                     color="blue-gray"
-                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px] sm:text-lg md:text-xl "
+                    className="group relative flex items-center gap-3 overflow-hidden pr-[72px] sm:text-lg md:text-xl"
                 >
                     TO DO
                     <span className="absolute right-0 grid h-full w-12 place-items-center bg-blue-gray-600 transition-colors group-hover:bg-blue-gray-700">
@@ -66,7 +66,7 @@ export default function TaskList() {
                     {tasks.map(({ id, title, description, status }, index) => (
                         <TimelineItem className="w-full sm:h-full mt-3 md:h-36" key={index}>
                             <TimelineConnector className="!w-[78px]" />
-                            <TimelineHeader className={status === 'IN PROGRESS' ? 'relative rounded-xl border border-yellow-500 bg-gray-700 p-5 shadow-lg shadow-blue-gray-900 sm:flex flex-col md:flex-row w-full' : 'relative rounded-xl border border-blue-800  bg-blue-gray-900 p-5 shadow-lg shadow-gray-900 sm:flex flex-col md:flex-row'}>
+                            <TimelineHeader className={status ? 'relative rounded-xl border border-blue-800  bg-blue-gray-900 p-5 shadow-lg shadow-gray-900 sm:flex flex-col md:flex-row'  :  'relative rounded-xl border border-yellow-500 bg-gray-700 p-5 shadow-lg shadow-blue-gray-900 sm:flex flex-col md:flex-row w-full'}>
                                 <TimelineIcon className="p-3" variant="ghost">
                                     <BsLightningChargeFill className="h-5 w-5" color="white" />
                                 </TimelineIcon>
@@ -78,26 +78,17 @@ export default function TaskList() {
                                         {description}
                                     </Typography>
                                     <Typography variant="small" className="font-normal text-gray-500 sm:text-center  md:text-start">
-                                        {status}
+                                        {status ? "DONE" : "IN PROCESS"}
                                     </Typography>
                                 </div>
                                 <div className="flex flex-grow gap-2 justify-end">
                                     <Tooltip content="Done">
                                         <IconButton color="gray">
-                                            {status === 'DONE' ? (
-                                                <Checkbox
-                                                    defaultChecked
-                                                    ripple={false}
-                                                    className="h-8 w-8 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                                                />
-                                            ) : (
-                                                <Checkbox
-                                                    ripple={false}
-                                                    className="h-8 w-8 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                                                    onClick={() => handleEditState(id)}
-                                                />
-                                            )}
-
+                                            <Checkbox
+                                                ripple={false}
+                                                className="h-8 w-8 rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
+                                                onClick={() => handleEditState(id)}
+                                            />
                                         </IconButton>
                                     </Tooltip>
                                     <Link to={`/edit-task/${id}`}>
